@@ -120,4 +120,7 @@ class AlphaVantageLoader:
         df = df.sort_index()
 
         df.columns = [col.split(' ')[-1] for col in df.columns]
+
+        # Convert columns to numeric
+        df = df.apply(pd.to_numeric)
         return df
